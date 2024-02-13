@@ -7,7 +7,7 @@ This is a Spring project that uses Maven as a build tool. Some options for aquir
 
 ### Install maven dependencies
 ```
-mvn install
+mvn clean install
 ```
 
 ### Run tests
@@ -19,3 +19,11 @@ mvn test
 ```
 mvn spring-boot:run
 ```
+- The service will run on port 8080 by default unless it's already in use
+- In that case it will select the next adjacent free port
+
+### Get character data by name
+```
+curl -d "name=Luke Skywalker" -X POST http://localhost:8080/character
+```
+- If you don't wish to use curl any http client will work eg. [Postman](https://www.postman.com/) which supports importing curl statements to build requests
