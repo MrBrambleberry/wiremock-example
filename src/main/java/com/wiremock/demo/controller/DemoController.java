@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+
 @RestController
 public class DemoController {
 
@@ -20,7 +23,7 @@ public class DemoController {
 
          return webClient
                 .get()
-                .uri("/api/people/?search={name}",name)
+                .uri("/api/people/?search={name}", name.replace("+","%20"))
                 .retrieve()
                 .toEntity(String.class)
                 .block();
