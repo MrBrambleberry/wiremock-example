@@ -1,4 +1,4 @@
-package com.wiremock.demo.controller;
+package com.app.wiremockTutorial.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -6,13 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
-
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 
 @RestController
-public class DemoController {
+public class WiremockTutorialController {
 
     @Value("${resource.url}")
     private String resourceURL;

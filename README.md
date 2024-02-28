@@ -15,14 +15,15 @@ mvn clean install
 mvn test
 ```
 
-### Run project
+### Run project & get character data by name
 ```
 mvn spring-boot:run
 ```
 - The service will run on port 8080 by default unless it's already in use
 - In that case it will select the next adjacent free port
 
-### Get character data by name
+Once the serivce is running you can then query it:
+
 ```
 curl -d "name=Luke Skywalker" -X POST http://localhost:8080/character
 ```

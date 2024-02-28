@@ -1,7 +1,7 @@
-package com.wiremock.demo;
+package com.app.wiremockTutorial;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
-import com.wiremock.demo.controller.DemoController;
+import com.app.wiremockTutorial.controller.WiremockTutorialController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,10 +11,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class DemoControllerTest {
+public class WiremockTutorialControllerTests {
 
     @Autowired
-    DemoController demoController;
+    WiremockTutorialController wiremockTutorialController;
 
    WireMockServer wm = new WireMockServer(8080);
 
@@ -26,7 +26,7 @@ public class DemoControllerTest {
                         .withStatus(200)
                         .withBody("<response>Some content</response>")));
 
-        ResponseEntity<String> response = demoController.returnCharacter("Luke Skywalker");
+        ResponseEntity<String> response = wiremockTutorialController.returnCharacter("Luke Skywalker");
 
         assertTrue(response.getStatusCode().is2xxSuccessful());
         wm.verify(getRequestedFor(urlPathMatching("/api/people/")));

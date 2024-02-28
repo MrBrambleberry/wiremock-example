@@ -1,13 +1,13 @@
-package com.wiremock.demo;
+package com.app.wiremockTutorial;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class WiremockTutorialApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(WiremockTutorialApplication.class, args);
 	}
 
 }
