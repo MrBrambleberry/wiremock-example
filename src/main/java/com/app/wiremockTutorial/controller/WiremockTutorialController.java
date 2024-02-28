@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class WiremockTutorialController {
@@ -14,15 +15,14 @@ public class WiremockTutorialController {
     private String resourceURL;
 
     @PostMapping("/character")
-    public ResponseEntity<String> returnCharacter(@RequestParam("name")String name){
+    public Mono<ResponseEntity<String>> returnCharacter(@RequestParam("name")String name){
         WebClient webClient = WebClient.create(resourceURL);
+        String encodedName = name.replace("+", "%20");
 
-         return webClient
+        return webClient
                 .get()
-                .uri("/api/people/?search={name}", name.replace("+","%20"))
+                .uri("/api/people/?search={name}", encodedName)
                 .retrieve()
-                .toEntity(String.class)
-                .block();
-
+                .toEntity(String.class);
     }
 }
