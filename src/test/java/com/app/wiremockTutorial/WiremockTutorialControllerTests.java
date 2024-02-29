@@ -2,7 +2,6 @@ package com.app.wiremockTutorial;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.app.wiremockTutorial.controller.WiremockTutorialController;
-import org.junit.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class WiremockTutorialControllerTests {
